@@ -1,0 +1,10 @@
+generatorName: "python"
+nameMappings:
+  # "@id": "myId"  # Text mapping (alternative)
+  "@id": "id"  # Using builtin function name
+  # "type": "typeType"  # Text mapping (alternative)
+  type: "type"  # Using builtin function name
+  value: myValue  # Example mapping
+packageName: "example.client"
+outputDir : "python-client"
+

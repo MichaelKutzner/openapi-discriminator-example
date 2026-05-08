@@ -1,0 +1,10 @@
+generatorName: "scala-http4s"
+nameMappings:
+  # "@id": "myId"  # Text mapping, usable with Python (alternative)
+  "@id": "`@id`"  # Use escaped variable name
+  # "type": "typeType"  # Text mapping (alternative)
+  type: "`type`"  # Explicit escaped variable name
+  value: myValue  # Basic mapping
+packageName: "example.client"
+outputDir : "http4s-client"
+

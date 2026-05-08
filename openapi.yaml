@@ -1,0 +1,76 @@
+openapi: 3.1.0
+info:
+  title: Sandbox API
+  description: Demo API
+  version: v1
+externalDocs:
+  description: Example client
+  url: https://example.org
+servers:
+  - url: http://localhost:8080
+    description: Demo Server (maybe not needed?)
+paths:
+  /echo:
+    post:
+      summary: Echo posted object
+      description: Echo posted object
+      operationId: echo
+      requestBody:
+        description: Data to echo
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MyObject'
+      responses:
+        '200':
+          description: Echo object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MyObject'
+
+components:
+  schemas:
+    MyObject:
+      description: Echoable object
+      properties:
+        "@id":
+          type: integer
+        value:
+          type: string
+        feature:
+          $ref: '#/components/schemas/MyEither'
+      required:
+        - "@id"
+    MyEither:
+      oneOf:
+        - $ref: '#/components/schemas/MyLeft'
+        - $ref: '#/components/schemas/MyRight'
+      discriminator:
+        propertyName: type
+    MyLeft:
+      type: object
+      required:
+        - type
+      properties:
+        left:
+          type: string
+        value:
+          type: number
+        type:
+          enum:
+            - MyLeft
+          default: MyLeft
+    MyRight:
+      type: object
+      properties:
+        right:
+          type: string
+        value:
+          type: string
+        type:
+          enum:
+            - MyRight
+          default: MyRight
+

@@ -1,0 +1,10 @@
+# Generated files
+.bsp/
+.bloop/
+metals.sbt
+target/
+
+# Project specific code
+/http4s-client/
+/python-client/
+
